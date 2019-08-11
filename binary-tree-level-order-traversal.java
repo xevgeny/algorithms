@@ -8,12 +8,15 @@
  * }
  */
 
+// Standart BFS solution with queue
+// https://leetcode.com/problems/binary-tree-level-order-traversal/
+
 import java.util.Queue;
 import java.util.LinkedList;
 
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> res = new LinkedList<List<Integer>>();
+        List<List<Integer>> res = new LinkedList<>();
         if (root == null) return res;
         
         Queue<TreeNode> q = new LinkedList<TreeNode>() {{
