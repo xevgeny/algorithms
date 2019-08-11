@@ -6,40 +6,37 @@
  * }
  */
 
-/*
-
-Brute Force
-
-    - Traverse all the linked lists and collect the values of the nodes into an array.
-    - Sort and iterate over this array to get the proper value of nodes.
-    - Create a new sorted linked list and extend it with the new nodes.
-
-*/
+// Brute force solution: merge k lists -> sort resulted array
 
 import "sort"
 
 func mergeKLists(lists []*ListNode) *ListNode {
-	arr := []int{}
+	arr := []*ListNode{}
 	for _, ln := range lists {
 		for ln != nil {
-			arr = append(arr, ln.Val)
+			arr = append(arr, ln)
 			ln = ln.Next
 		}
 	}
 
-	sort.Ints(arr)
+	sort.Slice(arr, func(i, j int) bool {
+		return arr[i].Val < arr[j].Val
+	})
 
 	if len(arr) == 0 {
 		return nil
 	}
 
-	head := &ListNode{arr[0], nil}
+	head := arr[0]
 	curr := head
+
 	for i := 1; i < len(arr); i++ {
-		ln := &ListNode{arr[i], nil}
+		ln := arr[i]
 		curr.Next = ln
 		curr = ln
 	}
+
+	curr.Next = nil
 
 	return head
 }
