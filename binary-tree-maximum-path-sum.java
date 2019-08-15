@@ -26,7 +26,7 @@ class Solution {
     
     private int max(TreeNode node) {
         if (node == null) return 0;
-        int left = Math.max(0, max(node.left));   // does the left path contributes positively
+        int left = Math.max(0, max(node.left));   // does the left path contribute positively
         int right = Math.max(0, max(node.right)); // same for the right path
         maxVal = Math.max(maxVal, node.val + left + right);
         return node.val + Math.max(left, right);  // choosing either left or right or none 
