@@ -21,7 +21,10 @@
  
  2. merge into groups of 2
  
-    After first merging, we have k/2 arrays. We again merge arrays in groups, now we have k/4 arrays. We keep doing it unit we have one array left. The time complexity of this solution would O(Nklogk).
+    After first merging, we have k/2 arrays.
+    We again merge arrays in groups, now we have k/4 arrays. 
+    We keep doing it unit we have one array left. 
+    The time complexity of this solution would O(Nklogk).
        
  3. min-heap of size k
  
